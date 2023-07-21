@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Converter";
+
+}
+<div class="opacity-effect">
+    <button class="accordion">Show Tips</button>
+    <div class="panel">
+        <p>- Enter a valid digit with two or fewer decimal places to parse it into words like "2000.34", "30", "30.05", "40.5"</p>
+        <p>- Number should be greater than 0 and less than 2 bilion with two decimal places</p>
+    </div>
+    <form method="post" class="converter-form">
+        <label class="form-item">Show currency in</label>
+        <div class="add-currency-form">
+            <select asp-for="CurrencyValue" name="selectedCurrency" class="currencies form-item">
+                <option value="usd">USD</option>
+                <option value="rub">RUB</option>
+                <option value="eur">EUR</option>
+            </select>
+        </div>
+        <div style="display:flex; flex-direction:row; margin-left:10px">
+            <label>Add a custom currency:</label>
+            <image src="img/plus-solid.svg" class="add-custom-currency" />
+        </div>
+        <div style="display:flex; flex-direction:row; margin-left:10px">
+            <label>Remove all custom currencies:</label>
+            <image src="img/trash-solid.svg" class="remove-all-custom-currencies" />
+        </div>
+        <label class="form-item">Enter a number to convert</label>
+        <div style="display:flex; flex-direction: row; align-items: center">
+            <input class="form-item input-convert-val" type="text" name="decimalValue" asp-for="InputValue" placeholder='0.00' step=".01" pattern="^[1-9]\d*(\.\d+)?$" required />
+            <input class="convert-sbmt" type="submit" value="Convert" />
+        </div>
+        <p class="form-item convert-result">Converted number: <a style="font-weight:700">@Model.ConverterResult</a></p>
+    </form>
+</div>
+<div class="add-new-currency-wind">
+    <div style="display:flex; flex-direction: row; justify-content:space-between">
+        <label class="form-item">Currency name: </label>
+        <input class="close-currency-wind" type="button" value="x"/>
+    </div> 
+    <input class="form-item to-add-currency-name" type="text"/>
+    <input class="form-item save-new-currency-btw" type="button" value="Save"/>
+</div>
