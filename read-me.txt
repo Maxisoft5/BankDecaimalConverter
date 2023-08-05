@@ -1,8 +1,0 @@
-1. System requriments:
- - Visual Studio 2022 with ASP.NET Core 7 SDK
- - Chrome or firefox or Edge browser (or another browser except Internet Explorer)
-
-2. Run .sin file in folder and run project pressing F5 button.
-
-Code description:
-I used ASP.Net Core 7 in this project because it supports different platforms like Linux, Mac, Windows. Also, there are xUnit unit tests to check exists code.
